@@ -20,3 +20,9 @@ sources:
         loaded_at_field: created_at
         description: >
           Contains demographic information about each user
+      - name: addresses
+        loaded_at_field: created_at
+        description: >
+          Contains address information for users
+      - name: events
+        loaded_at_field :
