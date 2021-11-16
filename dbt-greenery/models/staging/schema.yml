@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: Staging table for user information like ID, name, and contact info.
+    columns:
+      - name: user_number_id
+        tests:
+          - not_null
+          - unique      
+      - name: user_id
+        tests:
+          - not_null
+          - unique      
