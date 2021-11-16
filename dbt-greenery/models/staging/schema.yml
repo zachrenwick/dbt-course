@@ -11,4 +11,18 @@ models:
       - name: user_id
         tests:
           - not_null
+          - unique
+  - name: stg_addresses
+    description: Staging table for addresses from source system
+    columns:
+      - name: address_id
+        tests:
+          - not_null
           - unique      
+  - name: stg_events
+    description: Staging table for web/app events
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique         
