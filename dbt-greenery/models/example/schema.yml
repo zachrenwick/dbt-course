@@ -15,4 +15,6 @@ models:
           - positive_values
       - name: weight_kg
         tests:
-          - positive_values
+          - positive_values:
+              config:
+                severity: warn
