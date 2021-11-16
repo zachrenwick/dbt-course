@@ -25,4 +25,19 @@ sources:
         description: >
           Contains address information for users
       - name: events
-        loaded_at_field :
+        loaded_at_field: created_at
+        decription: >
+          Contains web/app event details
+      - name: order_items
+        description: >
+          Order item details
+      - name: orders
+        loaded_at_field: created_at
+        description: >
+          Order details like shipping costs and dates, costs of order, etc
+      - name: products
+        decription: >
+          Product name, price and quantities
+      - name: promos
+        decription: >
+          promo id's, status and discounts
