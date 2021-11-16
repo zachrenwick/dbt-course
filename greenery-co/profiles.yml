@@ -1,0 +1,12 @@
+dbt_greenery:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: corise
+      password: corise
+      port: 5432
+      database: dbt
+      schema: dbt_zach
+      threads: 4
