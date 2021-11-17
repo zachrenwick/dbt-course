@@ -1,10 +1,11 @@
 image: corise/dbt-course-gitpod
 tasks:
-  - name: Start Postgres Server
+  - name: Start Postgres Server and Set dbt directory
     command: |
       sudo /etc/init.d/postgresql start
       export PGPASSWORD=corise PGUSER=corise PGDATABASE=dbt
       mkdir -p /workspace/.dbt && ln -snf /workspace/.dbt ~/.dbt
+      DBT_PROFILES_DIR='.'
   - name: Install Python Packages
     command: pip install -r requirements.txt
 ports:
