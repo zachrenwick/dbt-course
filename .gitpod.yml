@@ -1,12 +1,11 @@
 image: corise/dbt-course-gitpod
 tasks:
-  - name: Set Environment Variables
-    command: echo $ export DBT_PROFILES_DIR='.'
   - name: Start Postgres Server
     command: |
       sudo /etc/init.d/postgresql start
       export PGPASSWORD=corise PGUSER=corise PGDATABASE=dbt
       mkdir -p /workspace/.dbt && ln -snf /workspace/.dbt ~/.dbt
+      $ export DBT_PROFILES_DIR='.'
   - name: Install Python Packages
     command: pip install -r requirements.txt
 
