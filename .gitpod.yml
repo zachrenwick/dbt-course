@@ -16,4 +16,4 @@ vscode:
     - github.vscode-pull-request-github
     - ms-toolsai.jupyter
     - ms-python.python
-    - cweijan.vscode-database-client2
+    - cweijan.vscode-postgresql-client2
