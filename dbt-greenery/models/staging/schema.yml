@@ -25,7 +25,13 @@ models:
       - name: event_id
         tests:
           - not_null
-          - unique         
+          - unique
+      - name: created_at
+        tests:
+          - not_null:
+              config:
+                severity: warn
+                    
   - name: stg_products
     description: Staging table for products
     columns:

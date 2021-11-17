@@ -5,7 +5,7 @@
       target_schema='snapshots',
       unique_key='promo_id',
       strategy='check',
-      check_cols=['discount', 'status']
+      check_cols=['discout', 'status']
     )
   }}
 
