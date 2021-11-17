@@ -10,4 +10,4 @@ SELECT
     zipcode,
     state,
     country
-FROM {{ source('stage', 'addresses') }}
+FROM {{ source('src_public', 'addresses') }}

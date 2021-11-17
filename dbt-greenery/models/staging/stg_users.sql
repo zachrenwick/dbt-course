@@ -11,4 +11,4 @@ SELECT
     last_name,
     email,
     phone_number
-FROM {{ source('stage', 'users') }}
+FROM {{ source('src_public', 'users') }}

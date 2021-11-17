@@ -18,4 +18,4 @@ SELECT
     estimated_delivery_at,
     delivered_at,
     status
-FROM {{ source('stage', 'orders') }}
+FROM {{ source('src_public', 'orders') }}

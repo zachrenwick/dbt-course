@@ -8,4 +8,4 @@ SELECT
     promo_id,
     discout as discount,
     status
-FROM {{ source('stage', 'promos') }}
+FROM {{ source('src_public', 'promos') }}

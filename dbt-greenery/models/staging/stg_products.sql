@@ -9,4 +9,4 @@ SELECT
     name,
     price,
     quantity
-FROM {{ source('stage', 'products') }}
+FROM {{ source('src_public', 'products') }}

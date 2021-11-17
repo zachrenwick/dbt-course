@@ -11,4 +11,4 @@ SELECT
     event_type,
     page_url,
     created_at
-FROM {{ source('stage', 'events') }}
+FROM {{ source('src_public', 'events') }}

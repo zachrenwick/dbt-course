@@ -11,6 +11,6 @@
   }}
 
   SELECT * 
-  FROM {{ source('stage', 'orders') }}
+  FROM {{ source('src_public', 'orders') }}
 
 {% endsnapshot %}
