@@ -3,13 +3,13 @@
   {{
     config(
       target_schema='snapshots',
-      unique_key='promo_id',
+      unique_key='product_id',
       strategy='check',
-      check_cols=['discount', 'status']
+      check_cols=['name', 'price', 'quantity']
     )
   }}
 
   SELECT * 
-  FROM {{ source('stage', 'promos') }}
+  FROM {{ source('stage', 'products') }}
 
 {% endsnapshot %}

@@ -3,9 +3,9 @@
   {{
     config(
       target_schema='snapshots',
-      unique_key='product_id',
+      unique_key='promo_id',
       strategy='check',
-      check_cols=['name', 'price', 'quantity']
+      check_cols=['discount', 'status']
     )
   }}
 
