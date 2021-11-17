@@ -1,5 +1,7 @@
 image: corise/dbt-course-gitpod
 tasks:
+  - name: Set Environment Variables
+    command: echo $ export DBT_PROFILES_DIR='.'
   - name: Start Postgres Server
     command: |
       sudo /etc/init.d/postgresql start
@@ -7,9 +9,7 @@ tasks:
       mkdir -p /workspace/.dbt && ln -snf /workspace/.dbt ~/.dbt
   - name: Install Python Packages
     command: pip install -r requirements.txt
-  - name: Set dbt profiles directory
-    command:
-      DBT_PROFILES_DIR='.'
+
 ports:
   - port: 8000
     onOpen: open-preview
