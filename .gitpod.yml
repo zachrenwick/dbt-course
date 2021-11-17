@@ -5,7 +5,8 @@ tasks:
       sudo /etc/init.d/postgresql start
       export PGPASSWORD=corise PGUSER=corise PGDATABASE=dbt
       mkdir -p /workspace/.dbt && ln -snf /workspace/.dbt ~/.dbt
-      $ export DBT_PROFILES_DIR='.'
+      cd dbt-greenery 
+      export DBT_PROFILES_DIR='.'
   - name: Install Python Packages
     command: pip install -r requirements.txt
 
