@@ -6,4 +6,4 @@
 
 SELECT 
     
-FROM {{ source('stage', 'user') }}
+FROM {{ source('stage', 'events') }}
