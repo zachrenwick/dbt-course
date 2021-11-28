@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: int_products
+    description: Contains dimensional info about products.
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique      
+      - name: name
+        tests:
+          - not_null
+  - name: int_inventory
+    description: Shows currently inventory levels by product.
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique      
+      - name: quantity
+        tests:
+          - not_null
+          - positive_values

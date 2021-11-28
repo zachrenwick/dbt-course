@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: fact_inventory
+    description: Inventory qty by product
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique      
+      - name: quantity
+        tests:
+          - not_null
+          - positive_values
+  - name: dim_products
+    description: Dimensional info about products
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique      
+      - name: product_name
+        tests:
+          - not_null
