@@ -33,8 +33,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   dbt_greenery:
-    # Config indicated by + and applies to all files under models/example/
-    staging:
-      +materialized: view
-    core:
-      +materialized: tables
+    +materialized: view # this applies to all models in the current project
+    marts:
+      +materialized: table # this applies to all models in the `marts/` directory
+      core:
+        +schema: core # this applies to all models in the `marts/marketing/`` directory
+      marketing:
+        +schema: marketing # this applies to all models in the `marts/marketing/`` directory
+      product:
+        +schema: product # this applies to all models in the `marts/marketing/`` directory
