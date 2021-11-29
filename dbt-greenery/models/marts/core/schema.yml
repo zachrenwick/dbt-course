@@ -12,6 +12,16 @@ models:
         tests:
           - not_null
           - positive_values
+  - name: fact_orders
+    description: Order facts at the order id level
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique      
+      - name: user_id
+        tests:
+          - not_null
   - name: dim_products
     description: Dimensional info about products
     columns:
