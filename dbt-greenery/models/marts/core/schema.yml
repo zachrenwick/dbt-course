@@ -32,3 +32,9 @@ models:
       - name: year
         tests:
           - not_null
+      - name: month
+        tests:
+          - not_null
+      - name: day
+        tests:
+          - not_null

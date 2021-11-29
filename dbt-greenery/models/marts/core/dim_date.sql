@@ -9,7 +9,7 @@ WITH date_spine AS (
   {{ dbt_utils.date_spine(
       start_date="to_date('01/01/2020', 'mm/dd/yyyy')",
       datepart="day",
-      end_date="to_date('12/31/2021', 'mm/dd/yyyy')"
+      end_date="CURRENT_DATE"
      )
   }}
 
@@ -17,5 +17,7 @@ WITH date_spine AS (
 
     SELECT
       date_day,
-      EXTRACT( YEAR FROM date_day)       AS year
+      EXTRACT( YEAR FROM date_day)       AS year,
+      EXTRACT( MONTH FROM date_day)      AS month,
+      EXTRACT( DAY FROM date_day)        AS day
     FROM date_spine
