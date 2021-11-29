@@ -22,3 +22,10 @@ models:
       - name: product_name
         tests:
           - not_null
+  - name: dim_date
+    description: Date dimension table. Contains info about date and periods
+    columns:
+      - name: date_day
+        tests:
+          - not_null
+          - unique      
