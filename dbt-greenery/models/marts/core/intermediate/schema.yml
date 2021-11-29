@@ -22,3 +22,10 @@ models:
         tests:
           - not_null
           - positive_values
+  - name: int_addresses
+    description: address information
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+          - unique     

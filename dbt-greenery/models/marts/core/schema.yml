@@ -38,3 +38,10 @@ models:
       - name: day
         tests:
           - not_null
+  - name: dim_addresses
+    description: source of truth for address information
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+          - unique 
