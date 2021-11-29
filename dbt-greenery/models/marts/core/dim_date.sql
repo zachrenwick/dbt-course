@@ -17,6 +17,5 @@ WITH date_spine AS (
 
     SELECT
       date_day,
-      date_day                                                                                AS date_actual
-     
+      EXTRACT( YEAR FROM date_day)       AS year
     FROM date_spine

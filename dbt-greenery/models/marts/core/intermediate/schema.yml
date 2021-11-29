@@ -8,7 +8,7 @@ models:
         tests:
           - not_null
           - unique      
-      - name: name
+      - name: product_name
         tests:
           - not_null
   - name: int_inventory

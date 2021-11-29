@@ -28,4 +28,7 @@ models:
       - name: date_day
         tests:
           - not_null
-          - unique      
+          - unique 
+      - name: year
+        tests:
+          - not_null
