@@ -6,13 +6,14 @@
 
 SELECT 
 user_id,
-order count
-promo count
-order total
-shipping total
+count(distinct order_id) AS order_count,
+--promo count
+SUM(order_cost) AS total_customer_cost,
+SUM(shipping_cost) AS total_shipping_cost,
+SUM(order_total) AS total_customer_revenue,
 count of products purchased
 first_order_date
 most_recent_order_date
 
 FROM  {{ ref('dim_users') }}
-LEFT JOIN {{ ref('int_order_details') }}
+LEFT JOIN {{ ref('int_order_details') }} USING (user_id)
