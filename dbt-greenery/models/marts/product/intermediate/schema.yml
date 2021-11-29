@@ -9,6 +9,4 @@ models:
           - not_null      
       - name: view_date
         tests:
-          - not_null
-          - positive_values
-      
+          - not_null  

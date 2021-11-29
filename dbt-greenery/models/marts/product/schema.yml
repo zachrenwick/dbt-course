@@ -10,7 +10,6 @@ models:
       - name: view_date
         tests:
           - not_null
-          - positive_values
       - name: page_views
         tests:
           - not_null
