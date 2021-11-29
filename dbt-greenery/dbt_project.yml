@@ -34,6 +34,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_greenery:
     +materialized: view # this applies to all models in the current project
+    staging:
+      +materialized: view # this applies to all models in the `staging/`` directory
+      +schema: staging
     marts:
       +materialized: table # this applies to all models in the `marts/` directory
       core:
