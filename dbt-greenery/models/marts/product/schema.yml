@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: fact_product_page_views
+    description: product page views by day and hour
+    columns:
+      - name: product_id
+        tests:
+          - not_null      
+      - name: view_date
+        tests:
+          - not_null
+          - positive_values
+      - name: page_views
+        tests:
+          - not_null
+          - positive_values
+      

@@ -24,6 +24,10 @@ models:
       - name: address_id
         tests:
           - not_null
+      - name: order_total
+        tests:
+          - not_null
+          - positive_values
   - name: int_inventory
     description: Shows currently inventory levels by product.
     columns:
