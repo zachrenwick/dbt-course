@@ -7,9 +7,9 @@
 WITH date_spine AS (
 
   {{ dbt_utils.date_spine(
-      start_date="to_date('01/01/2020', 'mm/dd/yyyy')",
+      start_date="DATE('2020-01-01')",
       datepart="day",
-      end_date="CURRENT_DATE"
+      end_date="CURRENT_DATE()"
      )
   }}
 
