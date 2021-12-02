@@ -2,8 +2,6 @@ name: dbt
 
 on:
   push:
-    branches:
-      - master
 
 env:
   DBT_PROFILES_DIR: ./
