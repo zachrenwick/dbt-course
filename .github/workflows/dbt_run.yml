@@ -11,21 +11,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: dbt-deps
+        id: dbt-deps
+        uses: mwhitaker/dbt-action@master
+        with:
+          dbt_command: "dbt deps"
+          dbt_project_folder: "dbt-greenery"
       - name: dbt-run
         id: dbt-run
         uses: mwhitaker/dbt-action@master
         with:
-          dbt_command: "dbt deps dbt run --profiles-dir ."
+          dbt_command: "dbt run --profiles-dir ."
           dbt_project_folder: "dbt-greenery"
         env:
           DBT_BIGQUERY_TOKEN: ${{ secrets.DBT_BIGQUERY_TOKEN }}
       - name: Get the result
         run: echo "${{ steps.dbt-run.outputs.result }}"
         shell: bash
-
-      - name: SendGrid
-        uses: peter-evans/sendgrid-action@v1
-        env:
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-          SENDGRID_FROM: ${{ secrets.SENDGRID_FROM }}
-          SENDGRID_TO: ${{ secrets.SENDGRID_TO }}
