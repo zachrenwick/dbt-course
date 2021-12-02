@@ -2,11 +2,12 @@ greenery:
   target: dev
   outputs:
     dev:
-      type: postgres
-      host: localhost
-      user: corise
-      password: corise
-      port: 5432
-      database: dbt
-      schema: dbt_zach
-      threads: 4
+      type: bigquery
+      method: service-account
+      keyfile: ./creds.json # THIS FILE WILL BE GENERATED USING SECRETS DURING BUILD TIME
+      project: plenary-network-243016 # Replace this with your project id
+      dataset: dbt_zach # Replace this with dbt_your_name, e.g. dbt_bob
+      threads: 1
+      timeout_seconds: 300
+      location: US
+      priority: interactive
