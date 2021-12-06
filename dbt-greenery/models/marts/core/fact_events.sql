@@ -4,8 +4,8 @@
   )
 }}
 
-{% set event_types = ["add_to_cart", "checkout", "page_view", "delete_from_cart", "account_created", "package_shipped"] %}
 
+{% set event_types = dbt_utils.get_column_values(table=ref('stg_events'), column='event_type') %}
 
 SELECT 
 session_id
@@ -14,4 +14,4 @@ session_id
     {% endfor %}
     
 FROM {{ ref('stg_events') }}
-group by 1
+{{ dbt_utils.group_by(n=1) }}
