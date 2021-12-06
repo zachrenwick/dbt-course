@@ -7,6 +7,7 @@ tasks:
       mkdir -p /workspace/.dbt && ln -snf /workspace/.dbt ~/.dbt
       cd dbt-greenery 
       export DBT_PROFILES_DIR='.'
+      psql create role reporting;
   - name: Install Python Packages
     command: pip install -r requirements.txt
 
