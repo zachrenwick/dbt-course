@@ -4,13 +4,23 @@
   )
 }}
 
-SELECT split_part(page_url, 'https://greenary.com/product/', 2) AS product_id
-	,session_id
-	,DATE (created_at) AS checkout_date
-	,EXTRACT(HOUR FROM created_at) AS checkout_hour
-	,count(*) AS checkout_count
-FROM {{ ref('stg_events') }}
-WHERE event_type = 'checkout'
-	AND page_url LIKE 'https://greenary.com/product/%'
-	AND created_at IS NOT NULL
-{{ dbt_utils.group_by(n=4) }}
+
+with checkouts
+as (select distinct session_id 
+    from  {{ ref('stg_events') }}
+    where event_type = 'checkout'),
+
+product_actions_limited
+as (select product_id,
+           session_id,
+           sum(add_to_cart_count) - sum(delete_from_cart_count) AS net_add_to_cart_count
+    from  {{ ref('int_product_actions') }}
+    group by 1,2)
+
+SELECT  pal.product_id, 
+checkouts.session_id,
+count(*) as checkout_count
+FROM checkouts 
+INNER JOIN product_actions_limited pal on pal.session_id = checkouts.session_id
+WHERE net_add_to_cart_count > 0
+{{ dbt_utils.group_by(n=2) }}
