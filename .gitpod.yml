@@ -1,17 +1,15 @@
 image: corise/dbt-course-gitpod
 tasks:
-  - name: Start Postgres Server
+  - name: Start psql and add role
     command: |
       sudo /etc/init.d/postgresql start
       export PGPASSWORD=corise PGUSER=corise PGDATABASE=dbt
       mkdir -p /workspace/.dbt && ln -snf /workspace/.dbt ~/.dbt
       cd dbt-greenery 
       export DBT_PROFILES_DIR='.'
-  - name: Add Reporting Role to psql
-    command: |
-      cd dbt-greenery
       psql
       create role reporting;
+
   - name: Install Python Packages
     command: pip install -r requirements.txt --user
 
