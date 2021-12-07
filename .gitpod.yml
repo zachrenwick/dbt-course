@@ -9,8 +9,6 @@ tasks:
       export DBT_PROFILES_DIR='.'
       psql
       create role reporting;
-      \q
-
   - name: Install Python Packages
     command: pip install -r requirements.txt --user
 
