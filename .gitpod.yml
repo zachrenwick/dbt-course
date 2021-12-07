@@ -7,6 +7,8 @@ tasks:
       mkdir -p /workspace/.dbt && ln -snf /workspace/.dbt ~/.dbt
       cd dbt-greenery 
       export DBT_PROFILES_DIR='.'
+  - name: Add Reporting Role to psql
+    command: |
       psql
       create role reporting;
   - name: Install Python Packages
@@ -18,7 +20,6 @@ ports:
 
 vscode:
   extensions:
-    - github.vscode-pull-request-github
     - ms-toolsai.jupyter
     - ms-python.python
     - cweijan.vscode-postgresql-client2
