@@ -9,10 +9,11 @@ tasks:
       export DBT_PROFILES_DIR='.'
   - name: Add Reporting Role to psql
     command: |
+      cd dbt-greenery
       psql
       create role reporting;
   - name: Install Python Packages
-    command: pip install -r requirements.txt
+    command: pip install -r requirements.txt --user
 
 ports:
   - port: 8000
