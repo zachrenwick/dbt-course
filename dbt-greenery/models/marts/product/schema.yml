@@ -7,11 +7,13 @@ models:
       - name: product_id
         tests:
           - not_null      
-      - name: view_date
-        tests:
+      - name: session_id
           - not_null
-      - name: page_views
+  - name: fact_checkouts
+    description: checkouts by session and product
+    columns:
+      - name: product_id
         tests:
+          - not_null      
+      - name: session_id
           - not_null
-          - positive_values
-      
