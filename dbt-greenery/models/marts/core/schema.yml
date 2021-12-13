@@ -62,3 +62,18 @@ models:
         tests:
           - not_null
           - unique 
+exposures:
+  - name: Orders Dashboard
+    type: dashboard
+    maturity: high
+    url: https://bi.tool/dashboards/1
+    description: >
+      Used for product order dashboard
+    
+    depends_on:
+      - ref('fact_orders')
+      - ref('dim_users')
+      
+    owner:
+      name: Zach from Data
+      email: zach@data.com
